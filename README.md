@@ -24,4 +24,5 @@ https://community.render.com/t/nodemon-not-found-even-after-adding-it-as-a-dev-d
 - `Start Command:` node server.js   (whatever js file runs your app, top of package.json)
 - `Environment Variables:` include PORT and database URL connection string (.env contents)  
 4. Click **`Deploy`** button and wait a couple minutes for it to build  
-5. Go to Vercel hosting and make sure frontend hosting is using our current repo
+5. Go to Vercel hosting and make sure frontend hosting is using our current repo  
+6. Vercel settings/environment-variables and paste in our API:  https://collab-ecommerce-api.onrender.com
