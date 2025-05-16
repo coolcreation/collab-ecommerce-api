@@ -1,7 +1,16 @@
 ## Collab-Enhanced Ecommerce Backend API  
----   
+---
 **please note:**  package.json 'start' script has to be **`node server.js`** for production build.
-Render hosting requires a production build, we can't use **`nodemon`** as that's a dev build tool.
+Render hosting requires a production build, we can't use **`nodemon`** as that's a dev build tool.  
+This following would be perfect and would still allow nodemon to riun with `npm dev`:
+```
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'Backend does not require a build step'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  ```
 
 light reading on this:  
 https://community.render.com/t/nodemon-not-found-even-after-adding-it-as-a-dev-dependency/14419  
