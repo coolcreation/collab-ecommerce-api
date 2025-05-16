@@ -1,8 +1,8 @@
 ## Collab-Enhanced Ecommerce Backend API  
 ---
-**please note:**  package.json 'start' script has to be **`node server.js`** for production build.
+**please note:**  package.json 'start' script has to be **`node server.js`** for production build.  
 Render hosting requires a production build, we can't use **`nodemon`** as that's a dev build tool.  
-This following would be perfect and would still allow nodemon to riun with `npm dev`:
+This following would be perfect and would still allow nodemon to run with `npm dev`:
 ```
   "scripts": {
     "start": "node server.js",
