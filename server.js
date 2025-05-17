@@ -22,4 +22,5 @@ connectToDatabase();
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
+    console.log(`Server is running at https://collab-ecommerce-api.onrender.com as well!`);
 }); 
