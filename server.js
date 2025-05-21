@@ -3,6 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectToDatabase from "./database.js"; // Import database connection
 import usersRoutes from "./routes/usersRoute.js";
+import reviewRoutes from "./routes/reviewRoute.js"
+
+import categoryRoutes from "./routes/product/categoryRoute.js";
+import productRoutes from "./routes/product/productRoute.js"
 
 dotenv.config(); // Load environment variables
 
@@ -15,6 +19,9 @@ app.use(express.json());
  
 // Routes
 app.use("/users", usersRoutes);
+app.use("/products", productRoutes);
+app.use("/reviews", reviewRoutes);
+app.use("/categories", categoryRoutes);
 
 // Connect to MongoDB
 connectToDatabase();
