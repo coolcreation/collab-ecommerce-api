@@ -34,4 +34,18 @@ https://community.render.com/t/nodemon-not-found-even-after-adding-it-as-a-dev-d
 - `Environment Variables:` include PORT and database URL connection string (.env contents)  
 4. Click **`Deploy`** button and wait a couple minutes for it to build  
 5. Go to Vercel hosting and make sure frontend hosting is using our current repo  
-6. Vercel settings/environment-variables and paste in our API:  https://collab-ecommerce-api.onrender.com
+6. Vercel settings/environment-variables and paste in our API:  https://collab-ecommerce-api.onrender.com  
+
+### How to connect Render webhook to Github webhook  
+
+ 1. Go to https://render.com/ current project, go to settings and scroll down to `Deploy Hook`
+
+ 2. Copy this webhook URL. 
+  
+ 3. Turn off `Auto-Deploy` which is the setting box above `Deploy Hook` 
+4. Go to Github API repo and navigate to Settings/Webhooks and click on `Add webhook`
+5. Under `Payload URL` paste in the Render webhook URL
+6. Under `Content type` set it to application/json  
+7. Check the boxes `Enable SSL verification` and `Just the push event`  
+8. Click the `Add webhook` button and we are done!  
+9. Make a change in the API repo and push the change to test if the webhook works correctly
