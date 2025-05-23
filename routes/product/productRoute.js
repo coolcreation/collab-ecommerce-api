@@ -1,5 +1,6 @@
 import express from 'express'
 import Product from "../../models/product/productModel.js"
+import Category from '../../models/product/categoryModel.js'
 const router = express.Router()
 
 // GET ALL PRODUCTS
@@ -29,18 +30,41 @@ router.get("/:id", async (req, res) => {
 
 // POST NEW PRODUCT
 router.post("/", async (req, res) => {
-  const { name, age } = req.body  
+  const { name, description, imageURL, brand, price, categories } = req.body  
   console.log('Request body:', req.body)
+
   try {
-      const newProduct = new Product({ name, age })  
-      await newProduct.save()  
-      res.status(201).json(newProduct)  
-      console.log("New Product created")
+    // Find the category by name and get its ObjectId
+    const categoryIds = await Promise.all(categories.map(async (categoryName) => {
+      const category = await Category.findOne({ name: categoryName });
+      if (!category) {
+        throw new Error(`Category ${categoryName} not found`);
+      }
+      return category._id;
+    }));
+
+    // Create a new product
+    const newProduct = new Product({ 
+      name, 
+      description, 
+      imageURL, 
+      brand, 
+      price, 
+      categories: categoryIds 
+    });
+
+    // Save the new product
+    await newProduct.save();
+
+    // Return the new product
+    res.status(201).json(newProduct);
+    console.log("New Product created");
   } catch (err) {
-      console.log(err.message)
-      res.status(500).json({ code: 500, status: "Error saving product" })
+    console.log(err.message);
+    res.status(500).json({ code: 500, status: "Error saving product" });
   }
-})
+});
+
 
 router.put('/:id', async (req, res) => {
     try {
