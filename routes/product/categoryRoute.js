@@ -1,5 +1,5 @@
 import express from 'express'
-import Category from '../../models/category/categoryModel.js'
+import Category from '../../models/product/categoryModel.js'
 const router = express.Router()
 
 // GET ALL CATEGORIES
