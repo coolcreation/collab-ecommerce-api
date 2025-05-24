@@ -1,5 +1,5 @@
 import express from 'express'
-import Category from './../../models/product/categoryModel';   // jb- change 'models/category/' to 'models/product'
+import Category from './../../models/product/categoryModel.js';   // jb- change 'models/category/' to 'models/product'
 const router = express.Router()
 
 // GET ALL CATEGORIES
