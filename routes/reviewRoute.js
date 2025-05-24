@@ -1,6 +1,6 @@
 import express from 'express'
 import Review from "../models/reviewModel.js";
-import Product from './../models/product/productModel';
+import Product from './../models/product/productModel.js';  // needed to add the /product to get the error to go away
 
 const router = express.Router()
 
