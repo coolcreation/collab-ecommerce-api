@@ -7,6 +7,7 @@ import reviewRoutes from "./routes/reviewRoute.js"
 
 import categoryRoutes from "./routes/product/categoryRoute.js";
 import productRoutes from "./routes/product/productRoute.js"
+import paymentRoutes from "./routes/payment.js";
 
 dotenv.config(); // Load environment variables
 
@@ -22,6 +23,7 @@ app.use("/users", usersRoutes);
 app.use("/products", productRoutes);
 app.use("/reviews", reviewRoutes);
 app.use("/categories", categoryRoutes);
+app.use("/payment", paymentRoutes);
 
 // Connect to MongoDB
 connectToDatabase();
