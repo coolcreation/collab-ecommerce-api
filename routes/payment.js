@@ -1,14 +1,16 @@
-import express from "express";
+//  jb- 6/4: commenting this out until we get .env info as it's currently crashing our Render hosting
+
+
+// import express from "express";
 // import Stripe from "stripe";
 // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
-const router = express.Router();
+// const router = express.Router();
 
 
 // Create payment intent
 
-//  jb- 6/4: commenting this out until we get .env info as it's currently crashing our Render hosting
 // router.post("/create-payment-intent", async (req, res) => {
 //   const { amount } = req.body;
 //   try {
@@ -22,4 +24,4 @@ const router = express.Router();
 //   }
 // });
 
-export default router;
+// export default router;
