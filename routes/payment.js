@@ -1,12 +1,31 @@
 import express from "express";
-import Stripe from "stripe";
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+import dotenv from "dotenv";
 
+dotenv.config();
+
+import Stripe from "stripe";
 
 const router = express.Router();
 
+let stripe;
 
-// Create payment intent
+if (process.env.STRIPE_SECRET_KEY) {
+  stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: "2024-04-10",
+  });
+} else {
+  console.warn("⚠️ STRIPE_SECRET_KEY not set, using mock Stripe");
+  stripe = {
+    paymentIntents: {
+      create: async ({ amount, currency }) => {
+        console.log(`Mock create payment intent called with amount: ${amount} ${currency}`);
+        return { client_secret: "mock_client_secret_123" };
+      },
+    },
+  };
+}
+
+// Create payment intent route (same as before)
 router.post("/create-payment-intent", async (req, res) => {
   const { amount } = req.body;
   try {
